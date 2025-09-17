@@ -1,262 +1,247 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Card</title>
-    <style>
-        @font-face {
-            font-family: 'Copperplate';
-            src: local('Copperplate'), local('Copperplate Gothic Bold');
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Employee Card</title>
+  <style>
+    @font-face {
+      font-family: 'Copperplate';
+      src: local('Copperplate'), local('Copperplate Gothic Bold');
+    }
 
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f4f8;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 2vw;
-        }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2vw;
+    }
 
-        header {
-            background-color: #90EE90;
-            color: #000;
-            width: 100%;
-            max-width: 1200px;
-            min-width: 300px;
-            padding: 2vw 1vw;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2vw;
-            margin-left: auto;
-            margin-right: auto;
-            overflow: hidden;
-        }
+    header {
+      background-color: #90EE90;
+      color: #000;
+      width: 100%;
+      max-width: 1200px;
+      min-width: 300px;
+      padding: 2vw 1vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2vw;
+      overflow: hidden;
+    }
 
-        .header-container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 150%;
-            max-width: 500px;
-            margin: 0 auto;
-        }
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 1vw;
+    }
 
-        .header-container img {
-            width: 15vw;
-            height: auto;
-            max-height: 80px;
-            object-fit: contain;
-        }
+    .header-container img {
+      width: 15vw;
+      max-height: 80px;
+      object-fit: contain;
+    }
 
-        .header-title {
-            margin: 0;
-            font-family: 'Copperplate', 'Arial Black', sans-serif;
-            text-align: center;
-            flex-grow: 1;
-            font-size: 2.5vw;
-            line-height: 1.2;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+    .header-title {
+      margin: 0;
+      font-family: 'Copperplate', 'Arial Black', sans-serif;
+      text-align: center;
+      flex-grow: 1;
+      font-size: 2.5vw;
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
-        .header-title span {
-            display: block;
-            font-size: 2.5vw;
-        }
+    .header-title span {
+      display: block;
+      font-size: 2.5vw;
+    }
 
-        .card, .emergency-card {
-            background: #F5FFFA;
-            border-radius: 8px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-            padding: 3vw;
-            width: 90%;
-            max-width: 400px;
-            text-align: center;
-            margin-top: 2vw;
-        }
+    .card, .emergency-card {
+      background: #F5FFFA;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      padding: 3vw;
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      margin-top: 2vw;
+    }
 
-        .card img, .emergency-card img {
-            width: 20vw;
-            height: auto;
-            max-width: 90px;
-            max-height: 90px;
-            border-radius: 50%;
-            border: 2px solid #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            object-fit: cover;
-        }
+    .card img, .emergency-card img {
+      width: 20vw;
+      max-width: 90px;
+      max-height: 90px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      object-fit: cover;
+    }
 
-        .card h2, .emergency-card h2 {
-            margin: 2vw 0;
-            font-size: 4vw;
-            color: #333;
-        }
+    .card h2, .emergency-card h2 {
+      margin: 2vw 0;
+      font-size: 4vw;
+      color: #333;
+    }
 
-        .details {
-            text-align: left;
-            font-size: 2vw;
-            color: #333;
-            margin-top: 2vw;
-        }
+    .details {
+      text-align: left;
+      font-size: 2vw;
+      color: #333;
+      margin-top: 2vw;
+    }
 
-        .details .title {
-            font-weight: bold;
-            color: #555;
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1.5vw;
-        }
+    .details .title {
+      font-weight: bold;
+      color: #555;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1.5vw;
+    }
 
-        .details .title span {
-            flex: 1;
-        }
+    .details .title span {
+      flex: 1;
+    }
 
-        .details .title span:first-child {
-            flex: 0 0 40%;
-        }
+    .details .title span:first-child {
+      flex: 0 0 40%;
+    }
 
-        .blood-group {
-            color: red;
-            font-weight: bold;
-        }
+    .blood-group {
+      color: red;
+      font-weight: bold;
+    }
 
-        .normal-text {
-            color: #555;
-        }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 2vw;
+      width: 90%;
+      max-width: 400px;
+    }
 
-        .button-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 2vw;
-        }
+    .button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 2vw;
+      cursor: pointer;
+      width: 100%;
+      font-size: 2vw;
+    }
 
-        .button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 2vw;
-            cursor: pointer;
-            width: 100%; /* Change to 100% to make it fill the container */
-            text-align: center;
-            font-size: 2vw;
-        }
+    .button:hover {
+      background-color: #0056b3;
+    }
 
-        .button:hover {
-            background-color: #0056b3;
-        }
+    .popup {
+      font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      padding: 4vw;
+      z-index: 10;
+      max-width: 90%;
+      max-height: 90%;
+      overflow-y: auto;
+    }
 
-        .popup {
-            font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-            padding: 4vw;
-            z-index: 10;
-            max-width: 90%;
-        }
+    .popup h2 {
+      margin: 0 0 1vw;
+      font-size: 3vw;
+    }
 
-        .popup h2 {
-            margin: 0 0 1vw;
-            font-size: 3vw;
-        }
+    .popup-content {
+      display: flex;
+      flex-direction: column;
+      gap: 3vw;
+      font-size: 2vw;
+    }
 
-        .popup-content {
-            display: flex;
-            flex-direction: column;
-            gap: 3vw;
-            font-size: 2vw;
-        }
+    .popup-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    }
 
-        .popup-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-align: center;
-        }
+    .popup-row span {
+      flex: 1;
+      text-align: left;
+    }
 
-        .popup-row span {
-            flex: 1;
-            text-align: left;
-        }
+    .popup-row span:first-child {
+      flex: 0 0 40%;
+    }
 
-        .popup-row span:first-child {
-            flex: 0 0 40%;
-            margin-right: 5px;
-        }
-
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 9;
-        }
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9;
+    }
   </style>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <img src="https://github.com/Dineshkumar380/CBCMPL/raw/main/ntpc-logo.png" alt="NTPC Logo" class="logo-ntpc">
-            <h1 class="header-title">
-                M/s Chatti Bariatu Coal Mining Private Limited    
-                <span>चट्टी बरियातू कोल माइनिंग प्राइवेट लिमिटेड</span>
-            </h1>
-              <img src="https://github.com/Dineshkumar380/CBCMPL/raw/main/rithwik-logo.png" alt="Rithwik Logo" class="logo-rithwik">
-        </div>
-    </header>
 
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <img src="https://github.com/Dineshkumar380/CBCMPL/raw/main/ntpc-logo.png" alt="NTPC Logo">
+      <h1 class="header-title">
+        M/s Chatti Bariatu Coal Mining Private Limited
+        <span>चट्टी बरियातू कोल माइनिंग प्राइवेट लिमिटेड</span>
+      </h1>
+      <img src="https://github.com/Dineshkumar380/CBCMPL/raw/main/rithwik-logo.png" alt="Rithwik Logo">
+    </div>
+  </header>
 
-<!-- Change From Here -->
-<div class="card">
+  <!-- Employee Card -->
+  <div class="card">
     <img src="OIP.jfif" alt="Photo of Anish Kumar Mehta">
     <h2>Anish Kumar Mehta</h2>
     <div class="details">
-        <div class="title"><span>EMPLOYEE CODE</span>: <span>CMR0195</span></div>
-        <div class="title"><span>DESIGNATION</span>: <span>Asst. Manager - Mining</span></div>
-        <div class="title"><span>DEPARTMENT</span>: <span>Mining</span></div>
-        <div class="title"><span>FORM "A" NO</span>: <span>CB-213</span></div>
-        <div class="title"><span>PERSONAL EMAIL</span>: <span>ANISHMEHTA58@GMAIL.COM</span></div>
-        <div class="title"><span>CONTACT NO.</span>: 
-            <span><b>9123133693</b> 
-                <span class="call-icon" onclick="window.location='tel:9123133693';" style="font-size: 1.5vw;">📞</span>
-            </span>
-        </div>
-        <div class="title"><span>CERTIFICATE TYPE</span>: <span>SMCC</span></div>
-        <div class="title"><span>POST/WORK</span>: <span>OPEN CAST</span></div>
+      <div class="title"><span>EMPLOYEE CODE</span>: <span>CMR0195</span></div>
+      <div class="title"><span>DESIGNATION</span>: <span>Asst. Manager - Mining</span></div>
+      <div class="title"><span>DEPARTMENT</span>: <span>Mining</span></div>
+      <div class="title"><span>FORM "A" NO</span>: <span>CB-213</span></div>
+      <div class="title"><span>PERSONAL EMAIL</span>: <span>ANISHMEHTA58@GMAIL.COM</span></div>
+      <div class="title"><span>CONTACT NO.</span>: <span><b>9123133693</b> <span class="call-icon" onclick="window.location='tel:9123133693';">📞</span></span></div>
+      <div class="title"><span>CERTIFICATE TYPE</span>: <span>SMCC</span></div>
+      <div class="title"><span>POST/WORK</span>: <span>OPEN CAST</span></div>
     </div>
-</div>
+  </div>
 
-<div class="emergency-card">
+  <!-- Emergency Card -->
+  <div class="emergency-card">
     <h2 style="color:red;">Emergency Details</h2>
     <div class="details">
-        <div class="title"><span>BLOOD GROUP</span>: <span>B+VE</span></div>
-        <div class="title"><span>EMERGENCY CONTACT PERSON</span>: <span>Manish Varma</span></div>
-        <div class="title"><span>CONTACT NO.</span>: 
-            <span><b>9470999949</b> 
-                <span class="call-icon" onclick="window.location='tel:9470999949';" style="font-size: 1.5vw;">📞</span>
-            </span>
-        </div>
-        <div class="title"><span>ADDRESS</span>: 
-            <span>At-Vill:-Pabra, Post-Pabra, P.S-Katkamsaandi, Dist-Hazaribagh, Jharkhand-825319</span>
-        </div>
+      <div class="title"><span>BLOOD GROUP</span>: <span>B+VE</span></div>
+      <div class="title"><span>EMERGENCY CONTACT PERSON</span>: <span>Manish Varma</span></div>
+      <div class="title"><span>CONTACT NO.</span>: <span><b>9470999949</b> <span class="call-icon" onclick="window.location='tel:9470999949';">📞</span></span></div>
+      <div class="title"><span>ADDRESS</span>: <span>At-Vill:-Pabra, Post-Pabra, P.S-Katkamsaandi, Dist-Hazaribagh, Jharkhand-825319</span></div>
     </div>
-</div>
+  </div>
 
 <!-- To Here -->       
 
@@ -354,4 +339,5 @@
     </script>
 </body>
 </html>
+
 
